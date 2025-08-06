@@ -16,3 +16,6 @@ Instant calculation of:
 
 -Clean and user-friendly design
 
+### Live Demo
+
+[Live Tip-Calculator](https://harshadino.github.io/Tip-Calculator/)
