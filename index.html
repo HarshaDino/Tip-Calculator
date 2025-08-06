@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tipCalc</title>
+</head>
+<style>
+    body{
+        background-color: oldlace;
+        color: orangered;
+    }
+
+    h2{
+        color:darkorchid;
+        text-align: center;
+    }
+
+    .wrapper{
+        text-align: center;
+        padding: 30px;
+        margin: 50px 300px;
+        border: solid burlywood 2px;
+    }
+
+    input{
+        color: purple;
+        font-size: 15px;
+        padding: 10px;
+        border-style: solid;
+        border-radius: 10px;
+        border-color: darkorchid;
+        border-width: 2px;
+        background-color: oldlace;
+    }
+
+    #bill{
+        padding:40px;
+    }
+
+    #tip{
+        padding: 35px;
+    }
+
+    #ppl{
+        padding: 60px;
+    }
+
+    .details{
+        padding: 30px;
+        font-size: 18px;
+    }
+
+    #total,#share{
+        color: purple;
+        font-size: 18px;
+    }
+
+    @media(max-width:480px){
+        .wrapper{
+            margin: 20px 10px;
+            }
+
+        .details{
+            padding: 20px;
+        }
+    }
+
+    @media(max-width:768px){
+        .wrapper{
+            margin: 20px 10px;
+        }
+    }
+
+    @media(max-width:1020px){
+        .wrapper{
+            margin: 50px 100px;
+        }
+
+    }
+   
+</style>
+
+<body>
+    <h2>TIP AND SHARE CALCULATOR</h2>
+    <div class="wrapper">
+        <div class="details">
+            <label for="billAmount" id="bill">Enter Bill Amount (in ₹) :</label>
+            <input type="text" id="billAmount" onkeyup="calculateBill()"><br>
+        </div>
+        <div class="details">
+            <label for="tipPercent" id="tip">Enter Tip Percentage (in ₹) :</label>
+            <input type="text" id="tipPercent" onkeyup="calculateBill()"><br>
+        </div>
+        <div class="details">
+            <label for="numberOfPersons" id="ppl">Enter no. of Person :</label>
+            <input type="text" id="numberOfPersons" onkeyup="calculateBill()"><br>
+        </div>
+        <div class="result">
+            <div id="total"></div><br>
+            <div id="share"></div>
+        </div>
+    </div>
+
+    <script>
+        const calculateBill = () => {
+            const billAmount = document.getElementById('billAmount').value;
+            const tipPercent = document.getElementById('tipPercent').value;
+            const numberOfPersons = document.getElementById('numberOfPersons').value;
+            
+            const tipAmount = Number(billAmount) * (Number(tipPercent)/100)
+            console.log({tipAmount})
+            const totalBill = Number(billAmount) + tipAmount
+            console.log({totalBill})
+            const perPersonShare = totalBill / Number(numberOfPersons)
+            console.log({perPersonShare})
+            document.getElementById('total').innerHTML = `Your bill including tip : ₹ ${totalBill}/-`
+            document.getElementById('share').innerHTML = `Each person share : ₹ ${perPersonShare}/-`
+        }
+    </script>
+</body>
+</html>
